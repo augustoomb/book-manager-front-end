@@ -1,0 +1,39 @@
+.menuAside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: bisque; */
+    padding: 20px;
+    border-right: 1px solid black;
+}
+
+.menuAsideTop {
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 0;
+}
+
+.listItem {
+    color: #6D454C;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.listItem:hover {
+    background-color: #6D454C;
+}
+
+.listItem:hover > * {
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&display=swap');
+
+.buttonLogin {
+    background-image: linear-gradient(rgba(109, 69, 76, 1), rgba(109, 69, 76, 0.8));
+    width: 220px;
+    height: 44px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    font-size: 14px;
+    border-radius: 10px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 600;
+    box-shadow: 10px 10px 8px #888888;
+  }
+  
+.buttonLogin:disabled {
+  background-color: grey;
+}
+
+.buttonLogin:hover {
+  background-image: linear-gradient(rgba(109, 69, 76, 0.8), rgba(109, 69, 76, 1));
+}

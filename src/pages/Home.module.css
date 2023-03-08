@@ -1,0 +1,10 @@
+.container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "aside header"
+    "aside main";
+    grid-template-rows: 20% 80%;
+    grid-template-columns: 280px 1fr;
+}

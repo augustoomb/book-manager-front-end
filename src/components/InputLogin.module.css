@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&display=swap');
+
+.inputLogin {
+  padding: 15px;
+  border-radius: 10px;
+  border: none;  
+  background-color: rgba(195, 195, 195, 0.5); /* C3C3C3 50% */
+  color: #6D454C;
+  margin-bottom: 25px;
+  width: 90%;
+  font-size: 13px;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+.inputLogin:focus {
+  outline: none;
+  border: 2px solid #6D454C;
+}

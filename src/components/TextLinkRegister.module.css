@@ -1,0 +1,18 @@
+.text {
+    text-align: center;
+    font-size: 13px;
+    width: 240px;
+    margin: 0;
+    color: #6D454C;
+}
+
+a {
+    text-decoration: none;
+    color: #6D454C;
+}
+
+a:hover {
+    text-decoration: underline;
+    font-weight: bolder;
+    color: #6D454C;
+}

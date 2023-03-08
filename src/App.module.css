@@ -1,0 +1,12 @@
+.container {
+    height: 100vh;
+    /* background-image: url("./assets/Circle.svg"); */
+    /* background-repeat: no-repeat; */
+    /* padding: 0 25px;
+    max-width: 390px; */
+    /* margin: 0 auto; */
+    /* font-family: 'Lexend Deca', sans-serif; */
+    width: 100vw;
+    /* margin: 20px; */
+    /* padding: 20px; */
+  }
