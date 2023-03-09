@@ -2,8 +2,9 @@
     grid-area: header;
     display: flex;
     align-items: center;
-    padding-left: 20px;
+    padding: 20px;
     width: 60%;
+    max-width: 600px;
 }
 
 .inputArea {
@@ -13,7 +14,7 @@
     /* border:1px solid grey; */
     border: 2px solid #6D454C;
     border-radius: 7px;
-    padding: 6px 5px;
+    padding: 6px 5px;    
 }
 
 .inputArea > input {
@@ -27,4 +28,10 @@
     outline: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+@media screen and (max-width: 913px) {
+    .header {
+        height: 90px;
+    }
 }

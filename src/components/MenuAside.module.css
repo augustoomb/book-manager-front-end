@@ -18,3 +18,9 @@
     height: auto;
     align-self: center;
 }
+
+@media screen and (max-width: 913px) {
+    .menuAside {
+        display: none;
+    }
+}

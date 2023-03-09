@@ -1,0 +1,34 @@
+.bookArea {
+    display: flex;
+    flex-direction: column;
+    height: 240px;
+    width: 128px;
+    border: 1px solid black;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 5px;
+}
+
+.bookImg {
+    height: 180px;
+    width: 128px;
+    border: 1px solid red;
+}
+
+.bookInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.bookInfo > p{
+    margin: 0px;
+    padding: 3px 0px;
+    font-size: small;
+}
+
+.bookInfoTitle {
+    font-weight: bold;
+    color: #6D454C;
+}
