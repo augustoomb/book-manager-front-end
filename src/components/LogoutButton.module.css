@@ -1,0 +1,9 @@
+.logoutButton {
+    background-color: white;
+    border: none;
+    color: #6D454C;
+    /* font-weight: bold; */
+    font-size: medium;
+    /* display: flex; */
+    /* padding-left: 5px; */
+}
