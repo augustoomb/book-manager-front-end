@@ -9,11 +9,17 @@
     padding: 0px 5px;
 }
 
+
 .bookImg {
     height: 180px;
     width: 128px;
     border: 1px solid red;
 }
+
+.bookImg:hover {
+    opacity: 0.2;
+}
+
 
 .bookInfo {
     display: flex;
@@ -22,7 +28,7 @@
     height: 100%;
 }
 
-.bookInfo > p{
+p {
     margin: 0px;
     padding: 3px 0px;
     font-size: small;

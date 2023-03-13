@@ -2,10 +2,15 @@
 import styles from './ButtonLogin.module.css';
 
 function ButtonLogin(props) {
-  const { children } = props;
+  const { children, type = 'button', disabled, onclick } = props;
 
   return (
-    <button className={ styles.buttonLogin }>
+    <button
+      className={ styles.buttonLogin }
+      disabled={ disabled }
+      onClick={ onclick }
+      type={ type }
+    >
       {children}
     </button>
   );

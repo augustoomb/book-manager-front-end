@@ -16,9 +16,13 @@
   }
   
 .buttonLogin:disabled {
-  background-color: grey;
+  background-image: linear-gradient(rgba(109, 69, 76, 0.801), rgba(109, 69, 76, 0.603));
+  color: rgba(255, 255, 255, 0.445);
 }
 
-.buttonLogin:hover {
+.buttonLogin:hover:enabled {
   background-image: linear-gradient(rgba(109, 69, 76, 0.8), rgba(109, 69, 76, 1));
+}
+.buttonLogin:hover:disabled {
+  cursor: not-allowed;
 }

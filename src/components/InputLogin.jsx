@@ -3,7 +3,7 @@ import styles from './InputLogin.module.css';
 
 function InputLogin({
   placeholder, type = 'text', required = false, id = '',
-  value, name = '',
+  value, onChange, name = '',
 }) {
   return (
     <input
@@ -12,7 +12,7 @@ function InputLogin({
       required={ required }
       id={ id }
       value={ value }
-      // onChange={ onChange }
+      onChange={ onChange }
       name={ name }
       className={ styles.inputLogin }
     />
