@@ -11,6 +11,7 @@ import styles from './Login.module.css';
 import LoginBanner from '../images/logo.png';
 import { loginRequest } from '../services/user';
 import { setToken } from '../redux/slices/user';
+import setTokenInLocalStorage from '../utils/setTokenInLocalStorage';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -36,6 +37,7 @@ function Login() {
       setSpanStatus(token.error);
     } else {
       dispatch(setToken({ token }));
+      setTokenInLocalStorage(token);
       navigate({ pathname: '/home' });
     }
   };
