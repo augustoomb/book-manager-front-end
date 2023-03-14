@@ -5,10 +5,14 @@ import HomeBanner from '../components/HomeBanner';
 import Book from '../components/Book';
 
 function Home() {
+  const handleSearch = (searchInputValue) => {
+    console.log(searchInputValue);
+  };
+
   return (
     <section className={ styles.container }>
       <MenuAside />
-      <Header />
+      <Header onClick={ handleSearch } />
       <main className={ styles.main }>
         <HomeBanner />
         <div className={ styles.recentlyAddedList }>
@@ -33,7 +37,6 @@ function Home() {
           </div>
         </div>
       </main>
-
     </section>
   );
 }
