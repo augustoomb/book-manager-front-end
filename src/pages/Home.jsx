@@ -3,10 +3,12 @@ import Header from '../components/Header';
 import MenuAside from '../components/MenuAside';
 import HomeBanner from '../components/HomeBanner';
 import Book from '../components/Book';
+import searchGoogleBooksApi from '../services/googleBooks';
 
 function Home() {
-  const handleSearch = (searchInputValue) => {
-    console.log(searchInputValue);
+  const handleSearch = async (searchInputValue) => {
+    const data = await searchGoogleBooksApi(searchInputValue);
+    console.log(data);
   };
 
   return (
