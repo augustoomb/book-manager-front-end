@@ -5,6 +5,7 @@ import MenuAside from '../components/MenuAside';
 import HomeBanner from '../components/HomeBanner';
 import Book from '../components/Book';
 import searchGoogleBooksApi from '../services/googleBooks';
+import BookCover from '../images/book-cover.png';
 
 function Home() {
   const [dataFound, setDataFound] = useState('');
@@ -19,6 +20,13 @@ function Home() {
   const handleSearch = async (searchInputValue) => {
     const data = await searchGoogleBooksApi(searchInputValue);
     setDataFound(data.items);
+  };
+
+  const setImage = (book) => {
+    if (book.volumeInfo.imageLinks) {
+      return book.volumeInfo.imageLinks.smallThumbnail;
+    }
+    return BookCover;
   };
 
   return (
@@ -44,13 +52,16 @@ function Home() {
           </main>
         ) : (
           <main className={ styles.mainHide }>
-            {
-              dataFound.map((book, index) => (<Book
-                key={ index }
-                title={ book.volumeInfo.title || 'título indefinido' }
-                author={ book.volumeInfo.authors || 'autor indefinido' }
-              />))
-            }
+            <div className={ styles.bookCollection }>
+              {
+                dataFound.map((book, index) => (<Book
+                  key={ index }
+                  title={ book.volumeInfo.title || 'título indefinido' }
+                  author={ book.volumeInfo.authors || 'autor indefinido' }
+                  image={ setImage(book) }
+                />))
+              }
+            </div>
           </main>
         )
       }
