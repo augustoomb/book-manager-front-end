@@ -18,7 +18,11 @@ function Header({ onClick }) {
     <header className={ styles.header }>
       <div className={ styles.inputArea }>
         <input placeholder="Busca" value={ searchInput } onChange={ handleChange } />
-        <button type="button" onClick={ () => onClick(searchInput) }>
+        <button
+          type="button"
+          onClick={ () => onClick(searchInput) }
+          disabled={ searchInput === '' }
+        >
           <FontAwesomeIcon icon="fa-magnifying-glass" />
         </button>
       </div>
