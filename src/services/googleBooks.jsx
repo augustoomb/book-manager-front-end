@@ -7,6 +7,7 @@ const searchGoogleBooksApi = async (searchInput) => {
       url: 'https://www.googleapis.com/books/v1/volumes',
       params: {
         q: searchInput,
+        langRestrict: 'pt',
       },
     });
     return response.data;
