@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Home.module.css';
 import Header from '../components/Header';
 import MenuAside from '../components/MenuAside';
@@ -9,6 +9,12 @@ import searchGoogleBooksApi from '../services/googleBooks';
 function Home() {
   const [dataFound, setDataFound] = useState('');
   const [searchInput, setSearchInput] = useState('');
+
+  useEffect(() => {
+    if (searchInput === '') {
+      setDataFound('');
+    }
+  }, [searchInput]);
 
   const handleSearch = async (searchInputValue) => {
     const data = await searchGoogleBooksApi(searchInputValue);
@@ -24,7 +30,7 @@ function Home() {
         setSearchInput={ setSearchInput }
       />
       {
-        dataFound === '' || searchInput === '' ? (
+        dataFound === '' ? (
           <main className={ styles.mainBase }>
             <HomeBanner />
             <div className={ styles.recentlyAddedList }>
