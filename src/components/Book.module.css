@@ -1,9 +1,9 @@
 .bookArea {
     display: flex;
     flex-direction: column;
-    height: 240px;
-    width: 128px;
-    border: 1px solid black;
+    height: 300px;
+    width: 150px;
+    /* border: 1px solid black; */
     justify-content: flex-start;
     align-items: center;
     padding: 0px 5px;
@@ -13,7 +13,8 @@
 .bookImg {
     height: 180px;
     width: 128px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    border-radius: 5px;
 }
 
 .bookImg:hover {
@@ -22,9 +23,10 @@
 
 
 .bookInfo {
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
 }
 
