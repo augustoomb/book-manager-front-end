@@ -9,10 +9,16 @@
     grid-template-columns: 260px 1fr;
 }
 
-.main {
+.mainBase {
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
+}
+
+.mainHide {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 /* .recentlyAddedList {
@@ -32,10 +38,16 @@
         align-items: center;
     }
 
-    .main {
+    .mainBase {
         /* height: 100%; */
         padding: 5px;
         display: flex;
         flex-direction: column;
     }
+
+    /* .mainHide {
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+    } */
 }
