@@ -8,6 +8,7 @@ import searchGoogleBooksApi from '../services/googleBooks';
 
 function Home() {
   const [dataFound, setDataFound] = useState('');
+  const [searchInput, setSearchInput] = useState('');
 
   const handleSearch = async (searchInputValue) => {
     const data = await searchGoogleBooksApi(searchInputValue);
@@ -17,9 +18,13 @@ function Home() {
   return (
     <section className={ styles.container }>
       <MenuAside />
-      <Header onClick={ handleSearch } />
+      <Header
+        onClick={ handleSearch }
+        searchInput={ searchInput }
+        setSearchInput={ setSearchInput }
+      />
       {
-        dataFound === '' ? (
+        dataFound === '' || searchInput === '' ? (
           <main className={ styles.mainBase }>
             <HomeBanner />
             <div className={ styles.recentlyAddedList }>

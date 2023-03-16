@@ -2,13 +2,13 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faMoon, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+// import { useState } from 'react';
 import styles from './Header.module.css';
 
 library.add(faMoon, faMagnifyingGlass);
 
-function Header({ onClick }) {
-  const [searchInput, setSearchInput] = useState('');
+function Header({ onClick, searchInput, setSearchInput }) {
+  // const [searchInput, setSearchInput] = useState('');
 
   const handleChange = ({ target }) => {
     setSearchInput(target.value);
