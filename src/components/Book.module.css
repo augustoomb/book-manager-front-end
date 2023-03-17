@@ -1,33 +1,53 @@
 .bookArea {
-    display: flex;
-    flex-direction: column;
     height: 280px;
     width: 150px;
-    /* border: 1px solid black; */
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0px 5px;
 }
 
-
-.bookImg {
+.container {
+    position: relative;
+    width: 80%;
+  }
+  
+  .image {
+    opacity: 1;
+    display: block;
+    /* width: 100%; */
+    /* height: auto; */
     height: 180px;
-    width: 128px;
-    /* border: 1px solid red; */
+    /* width: 128px; */
+    width: auto;
     border-radius: 5px;
-}
-
-.bookImg:hover {
-    opacity: 0.2;
-}
-
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
+  
+  .container:hover .image {
+    opacity: 0.3;
+  }
+  
+  .container:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+  }
 
 .bookInfo {
     padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
 }
 
 p {
