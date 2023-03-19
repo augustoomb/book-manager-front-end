@@ -8,6 +8,7 @@ const searchGoogleBooksApi = async (searchInput) => {
       params: {
         q: searchInput,
         langRestrict: 'pt',
+        printType: 'books',
       },
     });
     return response.data;
