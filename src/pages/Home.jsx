@@ -59,6 +59,7 @@ function Home() {
                   title={ book.volumeInfo.title || 'título indefinido' }
                   author={ book.volumeInfo.authors || 'autor indefinido' }
                   image={ setImage(book) }
+                  infoLink={ book.volumeInfo.infoLink }
                 />))
               }
             </div>

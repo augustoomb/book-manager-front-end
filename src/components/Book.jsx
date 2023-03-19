@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './Book.module.css';
 // import BookCover from '../images/book-cover.png';
 
-function Book({ title, author, image }) {
+function Book({ title, author, image, infoLink }) {
   return (
     <div className={ styles.bookArea }>
       <div className={ styles.container }>
@@ -14,7 +14,7 @@ function Book({ title, author, image }) {
           className={ styles.image }
         />
         <div className={ styles.middle }>
-          <Link to={ { pathname: 'https://herewecode.io/' } } target="_blank">
+          <Link to={ infoLink } target="_blank">
             Info
           </Link>
         </div>
