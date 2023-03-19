@@ -21,7 +21,9 @@ function Login() {
   const dispatch = useDispatch();
 
   const mailValidator = (emailValue) => {
-    const validateMailRegex = /\S+@\S+\.\S+/;
+    // const validateMailRegex = /\S+@\S+\.\S+/;
+    // eslint-disable-next-line no-useless-escape
+    const validateMailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     return validateMailRegex.test(emailValue);
   };
 
@@ -33,6 +35,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const token = await loginRequest(email, password);
+    // console.log(token);
     if (token.error) {
       setSpanStatus(token.error);
     } else {
