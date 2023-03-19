@@ -7,11 +7,6 @@ const loginRequest = async (email, password) => {
     const response = await axios.post(`${backUrl}/users/login`, { email, password });
     return response.data;
   } catch (error) {
-    if (error.response.data.message.issues[0].message) {
-      return {
-        error: error.response.data.message.issues[0].message,
-      };
-    }
     return {
       error: error.response.data.message,
     };
