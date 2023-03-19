@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prop-types */
+import { Link } from 'react-router-dom';
 import styles from './Book.module.css';
 // import BookCover from '../images/book-cover.png';
 
@@ -13,7 +14,9 @@ function Book({ title, author, image }) {
           className={ styles.image }
         />
         <div className={ styles.middle }>
-          <div className={ styles.text }>John Doe</div>
+          <Link to={ { pathname: 'https://herewecode.io/' } } target="_blank">
+            Info
+          </Link>
         </div>
       </div>
       <div className={ styles.bookInfo }>
