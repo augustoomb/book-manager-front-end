@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
 import styles from './Book.module.css';
-// import BookCover from '../images/book-cover.png';
-// import { addBook } from '../redux/slices/bookLib';
+import { saveBook } from '../services/book';
 
 function Book({ title, author, image, infoLink }) {
-  // const dispatch = useDispatch();
-
-  const handleAddToMyLib = () => {
-    // console.log('cliquei no add!!!');
-    // dispatch(addBook({ id }));
+  const handleAddToMyLib = async () => {
+    const hasBeenRead = 0;
+    const objBook = {
+      title, image, hasBeenRead, author, infoLink,
+    };
+    const data = await saveBook(objBook);
+    console.log(data);
   };
 
   return (
