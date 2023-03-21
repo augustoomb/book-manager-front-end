@@ -57,7 +57,7 @@ function Home() {
                 dataFound.map((book, index) => (<Book
                   key={ index }
                   title={ book.volumeInfo.title || 'título indefinido' }
-                  author={ book.volumeInfo.authors || 'autor indefinido' }
+                  author={ book.volumeInfo.authors[0] || 'autor indefinido' }
                   image={ setImage(book) }
                   infoLink={ book.volumeInfo.infoLink }
                 />))
