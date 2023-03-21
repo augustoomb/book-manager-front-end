@@ -3,15 +3,21 @@
 import { Link } from 'react-router-dom';
 import styles from './Book.module.css';
 import { saveBook } from '../services/book';
+import checkStringIsLink from '../utils/checkStringIsLink';
 
 function Book({ title, author, image, infoLink }) {
   const handleAddToMyLib = async () => {
+    const sendImg = checkStringIsLink(image) ? image : '';
     const hasBeenRead = 0;
     const objBook = {
-      title, image, hasBeenRead, author, infoLink,
+      title, sendImg, hasBeenRead, author, infoLink,
     };
     const data = await saveBook(objBook);
-    console.log(data);
+    if (data.id) {
+      console.log('salvou legal!');
+    } else {
+      console.log('deu ruim!!');
+    }
   };
 
   return (
