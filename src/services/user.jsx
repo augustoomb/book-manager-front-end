@@ -13,13 +13,4 @@ const loginRequest = async (email, password) => {
   }
 };
 
-// const validateToken = async (token) => {
-//   try {
-//     const response = await axios.post(`${backUrl}/users/validateToken`, { token });
-//     return response.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
 export { loginRequest };
