@@ -29,6 +29,13 @@ function Home() {
     return BookCover;
   };
 
+  const setAuthor = (book) => {
+    if (book.volumeInfo.authors) {
+      return book.volumeInfo.authors[0];
+    }
+    return 'autor indefinido';
+  };
+
   return (
     <section className={ styles.container }>
       <MenuAside />
@@ -57,9 +64,9 @@ function Home() {
                 dataFound.map((book, index) => (<Book
                   key={ index }
                   title={ book.volumeInfo.title || 'título indefinido' }
-                  author={ book.volumeInfo.authors[0] || 'autor indefinido' }
+                  author={ setAuthor(book) }
                   image={ setImage(book) }
-                  infoLink={ book.volumeInfo.infoLink }
+                  infoLink={ book.volumeInfo.infoLink || 'sem informação' }
                 />))
               }
             </div>
