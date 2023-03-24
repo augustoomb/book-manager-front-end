@@ -42,6 +42,7 @@ function App() {
           <Route path="/library" element={ <PrivateRoute /> }>
             <Route path="/library" element={ <MyLibrary /> } />
           </Route>
+          <Route path="*" element={ <Navigate to="/" /> } />
         </Routes>
       </main>
     </Provider>
