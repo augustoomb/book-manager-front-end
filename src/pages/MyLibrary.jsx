@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import styles from './Home.module.css';
-import Header from '../components/Header';
 import MenuAside from '../components/MenuAside';
 import { getAllBooksByUser } from '../services/book';
 import Book from '../components/Book';
@@ -21,22 +20,24 @@ function MyLibrary() {
   return (
     <section className={ styles.container }>
       <MenuAside />
-      <Header />
+      {/* <Header /> */}
       <main>
         <h2>MyLibrary content</h2>
         {
-          myBooks === '' ? (
-            <h3>Não há livros salvos na sua biblioteca</h3>
+          myBooks.length === 0 ? (
+            <p>Não há livros salvos na sua biblioteca</p>
           ) : (
-            <main>
-              <div>
+            <main className={ styles.mainHide }>
+              <div className={ styles.bookCollection }>
                 {
                   myBooks.map((book, index) => (<Book
                     key={ index }
+                    id={ book.id }
                     title={ book.title }
-                    author={ book.authorName }
+                    author={ book.author_name }
                     image={ book.thumb || BookCover }
-                    infoLink={ book.infoLink }
+                    infoLink={ book.info_link }
+                    inMyLib
                   />))
                 }
               </div>

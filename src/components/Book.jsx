@@ -2,10 +2,12 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import styles from './Book.module.css';
-import { saveBook } from '../services/book';
+import { saveBook, updateBook } from '../services/book';
 import checkStringIsLink from '../utils/checkStringIsLink';
 
-function Book({ title, author, image, infoLink }) {
+function Book({ id = 0, title, author, image, infoLink, inMyLib }) {
+  const STATUS_OK = 200;
+
   const handleAddToMyLib = async () => {
     const sendImg = checkStringIsLink(image) ? image : '';
     const hasBeenRead = 0;
@@ -16,7 +18,22 @@ function Book({ title, author, image, infoLink }) {
     if (data.id) {
       console.log('salvou legal!');
     } else {
-      console.log('deu ruim!!');
+      console.log('salvamento deu ruim!!');
+    }
+  };
+
+  const handleMarkAsRead = async () => {
+    const sendImg = checkStringIsLink(image) ? image : '';
+    const hasBeenRead = 1;
+    const objBook = {
+      title, sendImg, hasBeenRead, author, infoLink,
+    };
+    const statusResponse = await updateBook(id, objBook);
+
+    if (statusResponse === STATUS_OK) {
+      console.log('salvou legal!');
+    } else {
+      console.log('salvamento deu ruim!!');
     }
   };
 
@@ -32,9 +49,18 @@ function Book({ title, author, image, infoLink }) {
           <Link to={ infoLink } target="_blank">
             Info
           </Link>
-          <button onClick={ () => handleAddToMyLib() }>
-            Adicionar
-          </button>
+          {
+            inMyLib ? (
+              <button onClick={ () => handleMarkAsRead() }>
+                Marcar como lido
+              </button>
+            ) : (
+              <button onClick={ () => handleAddToMyLib() }>
+                Adicionar
+              </button>
+            )
+          }
+
         </div>
       </div>
       <div className={ styles.bookInfo }>
