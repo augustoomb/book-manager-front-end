@@ -9,6 +9,7 @@ function MyLibrary() {
   const [myBooks, setMyBooks] = useState([]);
 
   const requestMyBooks = async () => {
+    console.log('executou');
     const dataBooks = await getAllBooksByUser();
     setMyBooks(dataBooks);
   };
@@ -16,6 +17,10 @@ function MyLibrary() {
   useEffect(() => {
     requestMyBooks();
   }, []);
+
+  // useEffect(() => {
+  //   requestMyBooks();
+  // }, [myBooks]);
 
   return (
     <section className={ styles.container }>
@@ -37,6 +42,7 @@ function MyLibrary() {
                     author={ book.author_name }
                     image={ book.thumb || BookCover }
                     infoLink={ book.info_link }
+                    hasBeenRead={ book.has_been_read }
                     inMyLib
                   />))
                 }
