@@ -78,6 +78,7 @@ function Home() {
                       author={ book.author_name }
                       image={ book.thumb || BookCover }
                       infoLink={ book.info_link }
+                      hasBeenRead={ book.has_been_read }
                       inMyLib
                     />))
                   )
@@ -95,6 +96,7 @@ function Home() {
                   author={ setAuthor(book) }
                   image={ setImage(book) }
                   infoLink={ book.volumeInfo.infoLink || 'sem informação' }
+                  hasBeenRead={ 0 }
                   inMyLib={ false }
                 />))
               }
