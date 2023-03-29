@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import MenuAside from '../components/MenuAside';
 import HomeBanner from '../components/HomeBanner';
 import Book from '../components/Book';
-import searchGoogleBooksApi from '../services/googleBooks';
+import { searchGoogleBooksApi } from '../services/googleBooks';
 import BookCover from '../images/book-cover.png';
 import { getAllBooksByUser } from '../services/book';
 

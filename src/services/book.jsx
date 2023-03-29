@@ -26,15 +26,6 @@ const getAllBooksByUser = async () => {
   return response.data;
 };
 
-// const getOneBookByUser = async (idBook) => {
-//   const response = await axios.get(`${backUrl}/books/${idBook}`, {
-//     headers: {
-//       Authorization: localStorage.getItem('tokenLogin'),
-//     },
-//   });
-//   return response.data;
-// };
-
 const updateBook = async (id, objBook) => {
   const response = await axios.put(
     `${backUrl}/books/${id}`,
