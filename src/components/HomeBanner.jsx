@@ -37,11 +37,13 @@ function HomeBanner() {
       {
         randomBook ? (
           <div className={ styles.homeBanner }>
-            <img
-              className={ styles.imgHomeBanner }
-              src={ setImage(randomBook) }
-              alt="book-cover"
-            />
+            <div className={ styles.imgHomeArea }>
+              <img
+                className={ styles.imgHomeBanner }
+                src={ setImage(randomBook) }
+                alt="book-cover"
+              />
+            </div>
             <div className={ styles.infoHomeBanner }>
               <h4>{setAuthor(randomBook) }</h4>
               <h2>{ randomBook.volumeInfo.title }</h2>

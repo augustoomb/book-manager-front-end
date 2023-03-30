@@ -46,7 +46,7 @@ const getRandomBook = async () => {
     });
     return response.data.items[0];
   } catch (error) {
-    return error.response.data.error.message;
+    return null;
   }
 };
 
