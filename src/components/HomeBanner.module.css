@@ -39,19 +39,19 @@
 }
 
 .infoHomeBanner > h4 {
-    font-size: medium;
+    font-size: large;
     color: #6D454C;
     text-align: center;
 }
 
 .infoHomeBanner > h2 {
-    font-size: large;
+    font-size: x-large;
     color: rgba(0, 0, 0, 0.5);
     text-align: center;
 }
 
 .btnAddHomeBanner {
-    padding: 10px 12px;
+    padding: 11px 12px;
     border-radius: 8px;
     outline: none;
     border: none;
@@ -59,7 +59,7 @@
         rgba(109, 69, 76, 0.8));
     color: white;
     /* font-weight: bold; */
-    font-size: small;
+    font-size: medium;
     box-shadow: 10px 10px 8px #888888;
     cursor: pointer;
     width: 55px;

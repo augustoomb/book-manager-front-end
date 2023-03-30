@@ -48,7 +48,7 @@ function Book({ id = 0, title, author, image, infoLink, hasBeenRead, inMyLib }) 
         />
         <div className={ styles.middle }>
           <Link to={ infoLink } target="_blank">
-            Info
+            + Info
           </Link>
           {
             inMyLib ? (
