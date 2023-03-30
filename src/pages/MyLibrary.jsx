@@ -9,7 +9,7 @@ function MyLibrary() {
   const [myBooks, setMyBooks] = useState([]);
 
   const requestMyBooks = async () => {
-    console.log('executou');
+    // console.log('executou');
     const dataBooks = await getAllBooksByUser();
     setMyBooks(dataBooks);
   };

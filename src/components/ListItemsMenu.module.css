@@ -18,11 +18,25 @@
     /* gap: 5px; */
 }
 
-.listItem:hover {
+/* .listItem:hover {
     background-color: #6D454C;
 }
 
 .listItem:hover > .elements > * {
+    color: white;
+    text-decoration: none;
+} */
+
+.listItemSelected {
+    background-color: #6D454C;
+    font-weight: 400;
+    padding: 13px 8px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.listItemSelected > .elements > * {
     color: white;
     text-decoration: none;
 }
