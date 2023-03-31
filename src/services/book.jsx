@@ -6,7 +6,7 @@ const saveBook = async (objBook) => {
   const response = await axios.post(`${backUrl}/books`, {
     title: objBook.title,
     thumb: objBook.sendImg,
-    hasBeenRead: objBook.hasBeenRead,
+    hasBeenRead: objBook.hasBeenReadState,
     authorName: objBook.author,
     infoLink: objBook.infoLink,
   }, {
@@ -32,7 +32,7 @@ const updateBook = async (id, objBook) => {
     {
       title: objBook.title,
       thumb: objBook.sendImg,
-      hasBeenRead: objBook.hasBeenRead,
+      hasBeenRead: objBook.beenRead,
       authorName: objBook.author,
       infoLink: objBook.infoLink,
     },

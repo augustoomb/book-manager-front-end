@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prop-types */
-// import { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Book.module.css';
 import { saveBook, updateBook } from '../services/book';
@@ -9,22 +9,13 @@ import checkStringIsLink from '../utils/checkStringIsLink';
 function Book({ id = 0, title, author, image, infoLink, hasBeenRead, inMyLib }) {
   const STATUS_OK = 200;
 
-  // const [hasBeenReadState, setHasBeenReadState] = useState(hasBeenRead);
-  // const [loading, setLoading] = useState(false);
-
-  // useEffect(() => {
-  //   if (loading) {
-  //     doSomething();
-  //   }
-  // }, [loading]);
-
-  // setLoading(true);
+  const [hasBeenReadState, setHasBeenReadState] = useState(hasBeenRead);
 
   const handleAddToMyLib = async () => {
     const sendImg = checkStringIsLink(image) ? image : '';
 
     const objBook = {
-      title, sendImg, hasBeenRead, author, infoLink,
+      title, sendImg, hasBeenReadState, author, infoLink,
     };
     const data = await saveBook(objBook);
     if (data.id) {
@@ -36,10 +27,16 @@ function Book({ id = 0, title, author, image, infoLink, hasBeenRead, inMyLib }) 
 
   const handleMarkAsRead = async () => {
     const sendImg = checkStringIsLink(image) ? image : '';
-    hasBeenRead = hasBeenRead === 0 ? 1 : 0;
+    setHasBeenReadState(hasBeenReadState === 0 ? 1 : 0);
+
+    const beenRead = hasBeenReadState === 0 ? 1 : 0;
+
     const objBook = {
-      title, sendImg, hasBeenRead, author, infoLink,
+      title, sendImg, beenRead, author, infoLink,
     };
+
+    // console.log(objBook);
+
     const statusResponse = await updateBook(id, objBook);
 
     if (statusResponse === STATUS_OK) {
@@ -64,7 +61,7 @@ function Book({ id = 0, title, author, image, infoLink, hasBeenRead, inMyLib }) 
           {
             inMyLib ? (
               <button onClick={ () => handleMarkAsRead() }>
-                { hasBeenRead === 0 ? 'marcar lido' : 'marcar como ñ lido' }
+                { hasBeenReadState === 0 ? 'marcar lido' : 'marcar como ñ lido' }
               </button>
             ) : (
               <button onClick={ () => handleAddToMyLib() }>
