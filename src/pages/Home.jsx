@@ -35,7 +35,8 @@ function Home() {
 
   const handleSearch = async (searchInputValue) => {
     const data = await searchGoogleBooksApi(searchInputValue);
-    setDataFound(data.items);
+    // setDataFound(data.items);
+    setDataFound(data);
   };
 
   const setImage = (book) => {
@@ -57,6 +58,7 @@ function Home() {
       <MenuAside />
       <Header
         onClick={ handleSearch }
+        onKeyDown={ handleSearch }
         searchInput={ searchInput }
         setSearchInput={ setSearchInput }
       />
@@ -90,15 +92,19 @@ function Home() {
           <main className={ styles.mainHide }>
             <div className={ styles.bookCollection }>
               {
-                dataFound.map((book, index) => (<Book
-                  key={ index }
-                  title={ book.volumeInfo.title || 'título indefinido' }
-                  author={ setAuthor(book) }
-                  image={ setImage(book) }
-                  infoLink={ book.volumeInfo.infoLink || 'sem informação' }
-                  hasBeenRead={ 0 }
-                  inMyLib={ false }
-                />))
+                dataFound.totalItems > 0 ? (
+                  dataFound.items.map((book, index) => (<Book
+                    key={ index }
+                    title={ book.volumeInfo.title || 'título indefinido' }
+                    author={ setAuthor(book) }
+                    image={ setImage(book) }
+                    infoLink={ book.volumeInfo.infoLink || 'sem informação' }
+                    hasBeenRead={ 0 }
+                    inMyLib={ false }
+                  />))
+                ) : (
+                  <p>Não foram encontrados registros </p>
+                )
               }
             </div>
           </main>
