@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/prop-types */
-// import { useEffect, useState } from 'react';
+// import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Book.module.css';
 import { saveBook, updateBook } from '../services/book';
@@ -8,6 +8,17 @@ import checkStringIsLink from '../utils/checkStringIsLink';
 
 function Book({ id = 0, title, author, image, infoLink, hasBeenRead, inMyLib }) {
   const STATUS_OK = 200;
+
+  // const [hasBeenReadState, setHasBeenReadState] = useState(hasBeenRead);
+  // const [loading, setLoading] = useState(false);
+
+  // useEffect(() => {
+  //   if (loading) {
+  //     doSomething();
+  //   }
+  // }, [loading]);
+
+  // setLoading(true);
 
   const handleAddToMyLib = async () => {
     const sendImg = checkStringIsLink(image) ? image : '';
