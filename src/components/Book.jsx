@@ -60,9 +60,18 @@ function Book({ id = 0, title, author, image, infoLink, hasBeenRead, inMyLib }) 
           </Link>
           {
             inMyLib ? (
-              <button onClick={ () => handleMarkAsRead() }>
-                { hasBeenReadState === 0 ? 'marcar lido' : 'marcar como ñ lido' }
-              </button>
+              // <button onClick={ () => handleMarkAsRead() }>
+              //   { hasBeenReadState === 0 ? 'marcar lido' : 'marcar como ñ lido' }
+              // </button>
+              <div>
+                <input
+                  type="checkbox"
+                  id="readChBox"
+                  checked={ hasBeenReadState === 1 }
+                  onChange={ handleMarkAsRead }
+                />
+                <label htmlFor="readChBox">Lido</label>
+              </div>
             ) : (
               <button onClick={ () => handleAddToMyLib() }>
                 Adicionar
