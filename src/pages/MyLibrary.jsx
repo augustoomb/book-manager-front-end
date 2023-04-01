@@ -4,6 +4,7 @@ import MenuAside from '../components/MenuAside';
 import { getAllBooksByUser } from '../services/book';
 import Book from '../components/Book';
 import BookCover from '../images/book-cover.png';
+import TopMenu from '../components/TopMenu';
 
 function MyLibrary() {
   const [myBooks, setMyBooks] = useState([]);
@@ -24,6 +25,7 @@ function MyLibrary() {
 
   return (
     <section className={ styles.container }>
+      <TopMenu />
       <MenuAside />
       {/* <Header /> */}
       <main>

@@ -7,6 +7,7 @@ import Book from '../components/Book';
 import { searchGoogleBooksApi } from '../services/googleBooks';
 import BookCover from '../images/book-cover.png';
 import { getAllBooksByUser } from '../services/book';
+import TopMenu from '../components/TopMenu';
 
 function Home() {
   const [dataFound, setDataFound] = useState('');
@@ -55,6 +56,7 @@ function Home() {
 
   return (
     <section className={ styles.container }>
+      <TopMenu />
       <MenuAside />
       <Header
         onClick={ handleSearch }

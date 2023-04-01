@@ -21,10 +21,6 @@
     flex-direction: row;
 }
 
-/* .recentlyAddedList {
-    background-color: aqua;
-} */
-
 .bookCollection {
     display: flex;
     flex-direction: row;
@@ -45,9 +41,4 @@
         flex-direction: column;
     }
 
-    /* .mainHide {
-        padding: 5px;
-        display: flex;
-        flex-direction: row;
-    } */
 }
