@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 import styles from './Book.module.css';
 import { saveBook, updateBook } from '../services/book';
 import checkStringIsLink from '../utils/checkStringIsLink';
+import SpanBook from './SpanBook';
 
 function Book({ id = 0, title, author, image, infoLink, hasBeenRead, inMyLib }) {
   const STATUS_OK = 200;
 
   const [hasBeenReadState, setHasBeenReadState] = useState(hasBeenRead);
+  const [bookStatusMessage, setBookStatusMessage] = useState('');
 
   const handleAddToMyLib = async () => {
     const sendImg = checkStringIsLink(image) ? image : '';
@@ -19,9 +21,15 @@ function Book({ id = 0, title, author, image, infoLink, hasBeenRead, inMyLib }) 
     };
     const data = await saveBook(objBook);
     if (data.id) {
-      console.log('salvou legal!');
+      setBookStatusMessage('Adicionado com sucesso!');
+      setTimeout(() => {
+        setBookStatusMessage('');
+      }, '4000');
     } else {
-      console.log('salvamento deu ruim!!');
+      setBookStatusMessage(data);
+      setTimeout(() => {
+        setBookStatusMessage('');
+      }, '4000');
     }
   };
 
@@ -81,10 +89,17 @@ function Book({ id = 0, title, author, image, infoLink, hasBeenRead, inMyLib }) 
 
         </div>
       </div>
-      <div className={ styles.bookInfo }>
-        <p className={ styles.bookInfoTitle }>{title}</p>
-        <p className={ styles.bookInfoAuthor }>{author}</p>
-      </div>
+      {
+        bookStatusMessage === '' ? (
+          <div className={ styles.bookInfo }>
+            <p className={ styles.bookInfoTitle }>{title}</p>
+            <p className={ styles.bookInfoAuthor }>{author}</p>
+          </div>
+        ) : (
+          <SpanBook text={ bookStatusMessage } />
+        )
+      }
+
     </div>
   );
 }
