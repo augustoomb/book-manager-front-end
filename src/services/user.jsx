@@ -13,4 +13,18 @@ const loginRequest = async (email, password) => {
   }
 };
 
-export { loginRequest };
+const registerRequest = async (name, email, password, role) => {
+  try {
+    const response = await axios.post(
+      `${backUrl}/users`,
+      { name, email, password, role },
+    );
+    return response.data;
+  } catch (error) {
+    return {
+      error: error.response.data.message,
+    };
+  }
+};
+
+export { loginRequest, registerRequest };
