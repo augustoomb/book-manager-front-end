@@ -25,31 +25,45 @@ const saveBook = async (objBook) => {
 };
 
 const getAllBooksByUser = async () => {
-  const response = await axios.get(`${backUrl}/books`, {
-    headers: {
-      Authorization: localStorage.getItem('tokenLogin'),
-    },
-  });
-  return response.data;
-};
-
-const updateBook = async (id, objBook) => {
-  const response = await axios.put(
-    `${backUrl}/books/${id}`,
-    {
-      title: objBook.title,
-      thumb: objBook.sendImg,
-      hasBeenRead: objBook.beenRead,
-      authorName: objBook.author,
-      infoLink: objBook.infoLink,
-    },
-    {
+  try {
+    const response = await axios.get(`${backUrl}/books`, {
       headers: {
         Authorization: localStorage.getItem('tokenLogin'),
       },
-    },
-  );
-  return response.status;
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      return error.response.data.message;
+    }
+    return 'Erro';
+  }
+};
+
+const updateBook = async (id, objBook) => {
+  try {
+    const response = await axios.put(
+      `${backUrl}/books/${id}`,
+      {
+        title: objBook.title,
+        thumb: objBook.sendImg,
+        hasBeenRead: objBook.beenRead,
+        authorName: objBook.author,
+        infoLink: objBook.infoLink,
+      },
+      {
+        headers: {
+          Authorization: localStorage.getItem('tokenLogin'),
+        },
+      },
+    );
+    return response.status;
+  } catch (error) {
+    if (error.response) {
+      return error.response.data.message;
+    }
+    return 'Erro';
+  }
 };
 
 export { saveBook, getAllBooksByUser, updateBook };
