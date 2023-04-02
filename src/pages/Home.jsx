@@ -8,13 +8,17 @@ import { searchGoogleBooksApi } from '../services/googleBooks';
 import BookCover from '../images/book-cover.png';
 import { getAllBooksByUser } from '../services/book';
 import TopMenu from '../components/TopMenu';
+import Pagination from '../components/Pagination';
 
 function Home() {
   const [dataFound, setDataFound] = useState('');
   const [searchInput, setSearchInput] = useState('');
   const [myBooks, setMyBooks] = useState([]);
+  const [totalBooks, setTotalBooks] = useState(0);
+  const [firstCurrentIndex, setFirstCurrentIndex] = useState(0);
 
   const limitRecentBooks = 3;
+  const itemsPerPage = 10;
 
   useEffect(() => {
     if (searchInput === '') {
@@ -34,10 +38,22 @@ function Home() {
     requestMyRecentBooks();
   }, []);
 
-  const handleSearch = async (searchInputValue) => {
-    const data = await searchGoogleBooksApi(searchInputValue);
-    // setDataFound(data.items);
+  const nextPage = async () => {
+    setFirstCurrentIndex(firstCurrentIndex + itemsPerPage);
+    const data = await searchGoogleBooksApi(searchInput, firstCurrentIndex);
     setDataFound(data);
+  };
+
+  const prevPage = async () => {
+    setFirstCurrentIndex(firstCurrentIndex - itemsPerPage);
+    const data = await searchGoogleBooksApi(searchInput, firstCurrentIndex);
+    setDataFound(data);
+  };
+
+  const handleSearch = async (searchInputValue) => {
+    const data = await searchGoogleBooksApi(searchInputValue, firstCurrentIndex);
+    setDataFound(data);
+    setTotalBooks(data.totalItems);
   };
 
   const setImage = (book) => {
@@ -92,23 +108,32 @@ function Home() {
           </main>
         ) : (
           <main className={ styles.mainHide }>
-            <div className={ styles.bookCollection }>
-              {
-                dataFound.totalItems > 0 ? (
-                  dataFound.items.map((book, index) => (<Book
-                    key={ index }
-                    title={ book.volumeInfo.title || 'título indefinido' }
-                    author={ setAuthor(book) }
-                    image={ setImage(book) }
-                    infoLink={ book.volumeInfo.infoLink || 'sem informação' }
-                    hasBeenRead={ 0 }
-                    inMyLib={ false }
-                  />))
-                ) : (
-                  <p>Não foram encontrados registros </p>
-                )
-              }
-            </div>
+            {
+              dataFound.totalItems > 0 ? (
+                <div>
+                  <div className={ styles.bookCollection }>
+                    {
+                      dataFound.items.map((book, index) => (<Book
+                        key={ index }
+                        title={ book.volumeInfo.title || 'título indefinido' }
+                        author={ setAuthor(book) }
+                        image={ setImage(book) }
+                        infoLink={ book.volumeInfo.infoLink || 'sem informação' }
+                        hasBeenRead={ 0 }
+                        inMyLib={ false }
+                      />))
+                    }
+                  </div>
+                  <Pagination
+                    nextPage={ nextPage }
+                    prevPage={ prevPage }
+                    totalBooks={ totalBooks }
+                  />
+                </div>
+              ) : (
+                <p>Não foram encontrados registros </p>
+              )
+            }
           </main>
         )
       }

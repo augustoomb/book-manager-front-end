@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const arrSubject = ['fiction', 'romance', 'brazilian'];
 
-const googleLimit = 10;
+const paginationLimit = 10;
 
-const searchGoogleBooksApi = async (searchInput) => {
+const searchGoogleBooksApi = async (searchInput, firstCurrentIndex) => {
   try {
     const response = await axios({
       method: 'get',
@@ -14,8 +14,10 @@ const searchGoogleBooksApi = async (searchInput) => {
         q: searchInput,
         langRestrict: 'pt',
         printType: 'books',
+        startIndex: firstCurrentIndex,
       },
     });
+    console.log(response.data);
     return response.data;
   } catch (error) {
     return error.response.data.error.message;
@@ -30,7 +32,7 @@ const getRandomIntInclusive = (min, max) => {
 
 const getRandomBook = async () => {
   const randomNumberSubject = getRandomIntInclusive(0, arrSubject.length);
-  const randomNumberPosition = getRandomIntInclusive(0, googleLimit);
+  const randomNumberPosition = getRandomIntInclusive(0, paginationLimit);
 
   try {
     const response = await axios({
