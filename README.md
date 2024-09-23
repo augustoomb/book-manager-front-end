@@ -1,3 +1,5 @@
+![book-manager-front png3](https://user-images.githubusercontent.com/20017011/228833895-5951d59c-401f-4435-872b-80c226d39390.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -69,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-![book-manager-front png3](https://user-images.githubusercontent.com/20017011/228833895-5951d59c-401f-4435-872b-80c226d39390.png)
+
